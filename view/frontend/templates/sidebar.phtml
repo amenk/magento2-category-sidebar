@@ -6,6 +6,10 @@
  */
 $categories = $block->getCategories();
 $brands     = $block->getBrands();
+
+if (count($categories) == 0) {
+    return;
+}
 ?>
 
 <h3><?php echo __('Categories'); ?></h3>
