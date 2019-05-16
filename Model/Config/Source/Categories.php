@@ -47,13 +47,17 @@ class Categories implements \Magento\Framework\Option\ArrayInterface {
          * Check if parent node of the store still exists
          */
         $category = $this->_categoryFactory->create();
-        $storeCategories = $category->getCategories(1, $recursionLevel = 1, false, false, true);
+        $storeCategories = $category->getCategories(1, $recursionLevel = 2, false, false, true);
 
         $this->_storeCategories[$cacheKey] = $storeCategories;
 
         $resultArray = [];
         foreach($storeCategories as $category) {
             $resultArray[$category->getId()] = $category->getName();
+            foreach($category->getChildren() as $level2Category) {
+                $resultArray[$level2Category->getId()] = $category->getName() . '/' . $level2Category->getName();
+
+            }
         }
 		
 		$resultArray['current_category_children'] = __('Current Category Children');

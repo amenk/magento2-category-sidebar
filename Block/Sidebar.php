@@ -122,7 +122,7 @@ class Sidebar extends Template
             'sebwite_sidebar/general/category'
         );
 
-		if ( $category == 'current_category_children'){
+  		if ( $category == 'current_category_children'){
 			$currentCategory = $this->_coreRegistry->registry('current_category');
 			if($currentCategory){
 				return $currentCategory->getId();
@@ -175,7 +175,7 @@ class Sidebar extends Template
                 {
 
                     $html .= '<li class="level' . $level . ($this->isActive($childCategory) ? ' active' : '') . '">';
-                    $html .= '<a href="' . $this->getCategoryUrl($childCategory) . '" title="' . $childCategory->getName() . '" class="' . ($this->isActive($childCategory) ? 'is-active' : '') . '">' . $childCategory->getName() . '</a>';
+                    $html .= '<a href="' . $this->getCategoryUrl($childCategory) . '" title="' . $childCategory->getName() . '" class="' . ($this->isActive($childCategory) ? 'active' : '') . '">' . $childCategory->getName() . '</a>';
 
                     if ( $childCategory->hasChildren() )
                     {
