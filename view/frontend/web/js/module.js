@@ -25,5 +25,8 @@ require(['jquery'], function ($) {
                 element.siblings('li').find('ul').slideUp();
             }
         });
+
+        // activate tree items until the current active one
+        $('.sidebar a.active').parentsUntil('.sidebar').addClass('active');
     });
 });
